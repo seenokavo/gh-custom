@@ -16,6 +16,8 @@ jobs:
           caching: 'true'
       - name: 'Was cache used ?'
         run: echo "Cache used? ${{ steps.cache-deps.outputs.used-cache }}"
+      - name: 'Was cache used JSON?'
+        run: echo "outputs ${{ toJSON(steps.cache-deps.outputs) }}"        
       - name: Lint code
         run: npm run lint
   test:
